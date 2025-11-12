@@ -1,0 +1,484 @@
+/* ──────────────────────────────
+   Tailwind CSS V4 setup
+   ────────────────────────────── */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────
+   Custom styles (updated)
+   ────────────────────────────── */
+
+/* BASE LAYER ─────────────────── */
+@layer base {
+  html     { @apply scroll-smooth; }
+  body     {
+    @apply bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 { @apply font-semibold tracking-tight; }
+  h1 { @apply text-4xl lg:text-5xl; }
+  h2 { @apply text-3xl lg:text-4xl; }
+  h3 { @apply text-2xl lg:text-3xl; }
+  h4 { @apply text-xl  lg:text-2xl; }
+}
+
+/* COMPONENTS LAYER ───────────── */
+@layer components {
+  /* Buttons - Updated to Red Theme with OPTIMIZED Sizing */
+  .btn           { 
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    min-height: 40px; /* Slightly reduced button height */
+    width: 100%; /* Full width for product cards */
+  }
+  .btn-primary   { @apply bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 hover:shadow-lg hover:-translate-y-0.5 focus:ring-red-500; }
+  .btn-secondary { @apply bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 hover:shadow-md focus:ring-slate-500; }
+  .btn-outline   { @apply border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white focus:ring-red-500; }
+
+  /* Buy Now Button - OPTIMIZED Sizing */
+  .btn-buy-now   { 
+    @apply bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 hover:shadow-lg hover:-translate-y-0.5 focus:ring-red-500;
+    min-height: 40px; /* Reduced from 44px */
+    width: 100%;
+    font-weight: 600;
+    padding: 0.625rem 1rem; /* Optimized padding */
+    font-size: 0.875rem; /* Slightly smaller text */
+  }
+
+  /* Add to Cart Button - OPTIMIZED Sizing */
+  .btn-add-cart  { 
+    @apply bg-white text-red-600 border-2 border-red-600 hover:bg-red-50 hover:border-red-700 focus:ring-red-500;
+    min-height: 40px; /* Reduced from 44px */
+    width: 100%;
+    font-weight: 500;
+    padding: 0.625rem 1rem; /* Optimized padding */
+    font-size: 0.875rem; /* Slightly smaller text */
+  }
+
+  /* Cards & other components */
+  .card        { @apply bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 shadow-sm hover:shadow-lg transition-all duration-300; }
+  .card-hover  { @apply hover:shadow-xl hover:-translate-y-1; }
+  .glass       { @apply bg-white/10 backdrop-blur-xl border border-white/20; }
+  .input       { @apply w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200; }
+
+  /* Navigation - Updated to Red Theme */
+  .nav-link          { @apply flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-white/50 transition-all duration-200; }
+  .nav-link.active   { @apply text-red-600 bg-red-50 font-medium; }
+
+  /* OPTIMIZED PRODUCT GRID - Further Reduced Width for Better Filter Space */
+  .product-grid { 
+    @apply grid gap-4; /* Reduced gap from gap-5 to gap-4 */
+    grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns per row */
+    max-width: 1200px; /* REDUCED from 1320px to 1200px - gives more space to filters */
+    margin: 0 auto; /* Center the grid */
+  }
+
+  /* OPTIMIZED Product Cards - Further Reduced Width for Better Layout Balance */
+  .product-card {
+    @apply relative bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 shadow-sm hover:shadow-xl transition-all duration-300;
+    height: 540px; /* Maintained height for button visibility */
+    width: 100%;
+    min-width: 300px; /* REDUCED from 340px to 300px */
+    max-width: 360px; /* REDUCED from 400px to 360px */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Product Card Content Areas - OPTIMIZED for Smaller Width */
+  .product-image-container {
+    position: relative;
+    height: 220px; /* Maintained image height */
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .product-info-container {
+    flex: 1; /* Takes up available space */
+    padding: 1.25rem 1rem; /* REDUCED horizontal padding from 1.25rem to 1rem */
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem; /* Slightly reduced gap from 1rem to 0.875rem */
+  }
+
+  .product-buttons-container {
+    margin-top: auto; /* Push buttons to bottom */
+    padding: 0 1rem 1.25rem 1rem; /* REDUCED horizontal padding from 1.25rem to 1rem */
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem; /* Optimized gap between buttons - reduced from 0.75rem */
+  }
+
+  /* Feature Grid */
+  .feature-grid { @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6; }
+
+  /* Misc - Updated to Red Theme */
+  .gradient-text  { @apply bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent; }
+  .loading-spinner{ @apply animate-spin h-5 w-5 border-2 border-red-600 border-t-transparent rounded-full; }
+}
+
+/* UTILITIES LAYER ────────────── */
+@layer utilities {
+  .text-balance   { text-wrap: balance; }
+
+  /* Hide scrollbars */
+  .scrollbar-hide            { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  /* Custom animations */
+  @keyframes fadeInUp     { from { opacity:0; transform:translateY(30px);} to { opacity:1; transform:translateY(0);} }
+  @keyframes slideInRight { from { opacity:0; transform:translateX(30px);} to { opacity:1; transform:translateX(0);} }
+
+  .animate-fadeInUp     { animation: fadeInUp 0.6s ease-out forwards; }
+  .animate-slideInRight { animation: slideInRight 0.6s ease-out forwards; }
+
+  /* Glass morphism + hover - Updated to Red Theme */
+  .glass-card { background:rgba(255,255,255,0.25); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.18); box-shadow:0 8px 32px 0 rgba(31,38,135,0.37); }
+  .hover-lift { @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl; }
+  .hover-glow { @apply transition-all duration-300 hover:shadow-red-500/25 hover:shadow-xl; }
+}
+
+/* ──────────────────────────────
+   Logo Styles (Fixed)
+   ────────────────────────────── */
+
+/* Header logo responsive handling */
+.logo-main {
+  height: 3rem; /* 48px */
+  width: auto;
+  object-fit: contain;
+  max-width: 60px;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .logo-main {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo-main {
+    height: 2.5rem; /* 40px */
+    max-width: 50px;
+  }
+}
+
+/* Footer logo - properly converts colored logo to white (FIXED) */
+.footer-logo {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg);
+  mix-blend-mode: normal;
+}
+
+/* Alternative footer logo approach - better compatibility */
+.footer-logo-alt {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+  filter: grayscale(100%) brightness(200%) contrast(200%);
+}
+
+/* Logo hover effect */
+.logo-container:hover .logo-main {
+  transform: scale(1.05);
+}
+
+/* ──────────────────────────────
+   Additional Component Styles - OPTIMIZED FOR REDUCED WIDTH
+   ────────────────────────────── */
+
+/* Feature icons - Updated to Red Theme */
+.feature-icon {
+  @apply w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white shadow-lg;
+}
+
+/* OPTIMIZED Product badges - Better sizing for smaller cards */
+.product-badge {
+  position: absolute;
+  top: 10px; /* Slightly reduced from 12px */
+  left: 10px; /* Slightly reduced from 12px */
+  z-index: 20;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: white;
+  font-size: 0.7rem; /* REDUCED from 0.75rem */
+  font-weight: 700;
+  padding: 0.35rem 0.6rem; /* REDUCED padding for better fit */
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-width: 75px; /* REDUCED from 80px for smaller cards */
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* OPTIMIZED Discount Badge - Better sizing for reduced width */
+.discount-badge {
+  position: absolute;
+  top: 10px; /* Slightly reduced from 12px */
+  right: 10px; /* Slightly reduced from 12px */
+  z-index: 20;
+  background: linear-gradient(135deg, #059669, #047857);
+  color: white;
+  font-size: 0.7rem; /* REDUCED from 0.75rem */
+  font-weight: 700;
+  padding: 0.35rem 0.5rem; /* REDUCED padding for better fit */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-width: 70px; /* REDUCED from 75px for better fit */
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ──────────────────────────────
+   RADIO BUTTON STYLES - CLEAN HIDDEN DESIGN
+   ────────────────────────────── */
+
+/* Hide Native Radio Button Appearance Completely */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Remove ALL visible radio button elements */
+input[type="radio"]:checked {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Remove focus ring and any other visual indicators */
+input[type="radio"]:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Ensure no pseudo-elements are visible */
+input[type="radio"]::before,
+input[type="radio"]::after {
+  display: none;
+  content: none;
+}
+
+input[type="radio"]:checked::before,
+input[type="radio"]:checked::after {
+  display: none;
+  content: none;
+}
+
+/* Clean Price Range Filter Label Styling */
+.price-range-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0.75rem;
+  margin: 0;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.price-range-label:hover {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.price-range-label.selected {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Clean Selected Indicator (Replaces Red Circle) */
+.price-range-indicator {
+  width: 6px;
+  height: 6px;
+  background: #dc2626;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.price-range-label.selected .price-range-indicator {
+  opacity: 1;
+}
+
+/* ENHANCED Responsive breakpoints - Optimized for further reduced widths */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    max-width: 800px; /* REDUCED from 850px */
+    gap: 1rem; /* Slightly reduced gap for tablets */
+  }
+  
+  .product-card {
+    height: 520px; /* Slightly smaller on tablets */
+    min-width: 300px; /* Maintained */
+    max-width: 360px; /* Maintained */
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-padding {
+    @apply px-4;
+  }
+  
+  .mobile-text {
+    @apply text-sm;
+  }
+
+  /* Mobile Product Grid - Single column for better UX */
+  .product-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1rem;
+    max-width: 100%;
+  }
+
+  .product-card {
+    height: 480px; /* Optimized for mobile */
+    min-width: 280px; /* REDUCED from 300px */
+    max-width: 100%;
+  }
+
+  .product-image-container {
+    height: 180px; /* Smaller image on mobile */
+  }
+
+  .product-info-container {
+    padding: 1rem 0.875rem; /* REDUCED horizontal padding */
+    gap: 0.875rem;
+  }
+
+  .product-buttons-container {
+    padding: 0 0.875rem 1rem 0.875rem; /* REDUCED horizontal padding */
+    gap: 0.625rem;
+  }
+
+  /* Enhanced badge spacing for mobile */
+  .product-badge {
+    min-width: 70px; /* REDUCED for mobile */
+    padding: 0.3rem 0.45rem; /* REDUCED padding */
+  }
+
+  .discount-badge {
+    min-width: 65px; /* REDUCED for mobile */
+    padding: 0.25rem 0.4rem; /* REDUCED padding */
+  }
+
+  /* Mobile button optimization */
+  .btn-buy-now, .btn-add-cart {
+    min-height: 38px; /* Slightly smaller on mobile */
+    font-size: 0.8125rem; /* Smaller text on mobile */
+  }
+
+  /* Mobile price range labels */
+  .price-range-label {
+    padding: 0.625rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    height: 500px; /* Slightly taller for very small screens */
+    min-width: 260px; /* REDUCED from 280px */
+  }
+
+  .product-image-container {
+    height: 160px;
+  }
+}
+
+/* Component-specific hover effects */
+.product-card-hover {
+  @apply transform transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+}
+
+.category-icon-hover {
+  @apply transform transition-all duration-300 hover:scale-110 hover:rotate-3;
+}
+
+/* Navigation blur effect */
+.nav-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Text shadows */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading skeleton animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.product-buttons-container {
+  margin-top: auto;
+}
