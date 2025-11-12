@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# build outputs
+dist/
+build/
+
+# tooling caches
+.vite/
+.cache/
+.next/
+.nuxt/
+
+# environment
+.env
+.env.*.local
+
+# editor/OS
+.vscode/
+.DS_Store
